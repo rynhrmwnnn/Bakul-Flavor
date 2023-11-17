@@ -6,7 +6,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Username
+                        <?php echo $hasil['username']; ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end mt-3">
                         <li>

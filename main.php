@@ -1,8 +1,11 @@
 <?php
-    session_start();
+    // session_start();
     if(empty($_SESSION['username_bakul'])){
         header('location:login');
     }
+    include "proses/connect.php";
+    $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$_SESSION[username_bakul]'");
+    $hasil = mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
