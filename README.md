@@ -2,7 +2,7 @@
 
 sebuah aplikasi pemesanan digunakan untuk pemesanan minuman dan makanan di cafe, restoran, rumah makan atau yang sejenisnya
 
-## Pemilik'Admin
+## Pemilik/Admin
 
     -melihat laporan
     -menambah/mengubah/menghapus daftar menu dan harga
