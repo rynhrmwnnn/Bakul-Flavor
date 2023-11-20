@@ -1,6 +1,6 @@
 <?php
 include "proses/connect.php";
-$query = mysqli_query($conn, "SELECT * FROM tb_user");
+$query = mysqli_query($conn, "SELECT * FROM tb_users");
 while ($record = mysqli_fetch_array($query)) {
     $result[] = $record;
 }

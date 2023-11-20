@@ -8,7 +8,7 @@ $alamat = (isset($_POST['alamat'])) ? htmlentities($_POST['alamat']) : "" ;
 $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password'])) : "" ;
 
 if(!empty($_POST['input_user_validate'])){
-    $query = mysqli_query($conn, "INSERT INTO tb_user (nama,username,level,nohp,alamat,password) values ('$name','$username','$level','$nohp','$alamat','$password')");
+    $query = mysqli_query($conn, "INSERT INTO tb_users (nama,username,level,nohp,alamat,password) values ('$name','$username','$level','$nohp','$alamat','$password')");
     if($query){
         $message = '<script>alert("bajisan");
         window.location="../user"</script>

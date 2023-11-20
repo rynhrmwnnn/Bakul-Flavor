@@ -4,7 +4,7 @@
         header('location:login');
     }
     include "proses/connect.php";
-    $query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$_SESSION[username_bakul]'");
+    $query = mysqli_query($conn, "SELECT * FROM tb_users WHERE username = '$_SESSION[username_bakul]'");
     $hasil = mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>

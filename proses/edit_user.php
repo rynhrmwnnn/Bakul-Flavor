@@ -9,7 +9,7 @@ $alamat = (isset($_POST['alamat'])) ? htmlentities($_POST['alamat']) : "" ;
 $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password'])) : "" ;
 
 if(!empty($_POST['input_user_validate'])){
-    $query = mysqli_query($conn, "UPDATE tb_user SET nama='$name', username='$username', level='$level', nohp='$nohp', alamat='$alamat' WHERE id='$id'");
+    $query = mysqli_query($conn, "UPDATE tb_users SET nama='$name', username='$username', level='$level', nohp='$nohp', alamat='$alamat' WHERE id='$id'");
     if($query){
         $message = '<script>alert("bajisan");
         window.location="../user"</script>
