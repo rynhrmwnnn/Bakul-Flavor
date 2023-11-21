@@ -38,7 +38,6 @@
             </div>
             <div class="modal-body">
                 <form class="needs-validation" novalidate action="proses/ubah_password.php" method="POST">
-                    <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
@@ -63,8 +62,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com" name="passwordbaru" required>
+                                <input type="password" class="form-control" id="floatingInput" name="passwordbaru"
+                                    required>
                                 <label for="floatingInput">Password Baru</label>
                                 <div class="valid-feedback">Masukkan Password Baru.
                                 </div>

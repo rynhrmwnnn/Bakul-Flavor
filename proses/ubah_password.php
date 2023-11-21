@@ -2,32 +2,37 @@
 session_start();
 include "connect.php";
 $id = (isset($_POST['id'])) ? htmlentities($_POST['id']) : "" ;
-$passwordlama = (isset($_POST['passwordlama'])) ? htmlentities($_POST['passwordlama']) : "" ;
-$repasswordbaru = (isset($_POST['repasswordbaru'])) ? htmlentities($_POST['repasswordbaru']) : "" ;
+$passwordlama = (isset($_POST['passwordlama'])) ? md5(htmlentities($_POST['passwordlama'])) : "" ;
+$passwordbaru = (isset($_POST['passwordbaru'])) ? md5(htmlentities($_POST['passwordbaru'])) : "" ;
+$repasswordbaru = (isset($_POST['repasswordbaru'])) ? md5(htmlentities($_POST['repasswordbaru'])) : "" ;
 
-if(!empty($_POST['submit_validate'])){
+if(!empty($_POST['ubah_password_validate'])){
     $query = mysqli_query($conn, "SELECT * FROM tb_users WHERE username = '$_SESSION[username_bakul]' && password = '$passwordlama'");
     $hasil = mysqli_fetch_array($query);
     if ($hasil){
-        $query = mysqli_query($conn, "UPDATE tb_users SET nama='$name', username='$username', level='$level', nohp='$nohp',
-        alamat='$alamat' WHERE id='$id'");
-        if($query){
-            $message = '<script>
-            alert("bajisan");
-            window.location = "../user"
-            </script>
-            </script>';
+        if($passwordbaru == $repasswordbaru){
+            $query = mysqli_query($conn, "UPDATE tb_users SET password='$passwordbaru' WHERE username = '$_SESSION[username_bakul]'");
+            if($query){
+                $message = '<script>alert("Password Berhasil diubah");
+                window.history.back()</script>
+                </script>';
             }else{
-            $message = '<script>
-            alert("kontol")
-            </script>';
+                $message = '<script>alert("Password Gagal diubah");
+                window.history.back()</script>
+                </script>';
             }
-    } else {?>
-<script>
-alert('Username atau Password yang anda masukkan salah');
-window.location = '../login'
-</script>
-<?php
+        }else{
+            $message = '<script>alert("Password Baru Tidak Sama");
+                window.history.back()</script>
+                </script>';
+        }
+    } else {
+        $message = '<script>alert("Password Lama Tidak Sama");
+                window.history.back()</script>
+                </script>';
     }
-}echo $message;
+}else{
+    header('location:../home');
+}
+echo $message;
 ?>
