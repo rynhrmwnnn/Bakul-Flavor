@@ -8,13 +8,20 @@ $alamat = (isset($_POST['alamat'])) ? htmlentities($_POST['alamat']) : "" ;
 $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password'])) : "" ;
 
 if(!empty($_POST['input_user_validate'])){
-    $query = mysqli_query($conn, "INSERT INTO tb_users (nama,username,level,nohp,alamat,password) values ('$name','$username','$level','$nohp','$alamat','$password')");
-    if($query){
-        $message = '<script>alert("bajisan");
+    $select = mysqli_query($conn, "SELECT * FROM tb_users WHERE username ='$username'");
+    if (mysqli_num_rows($select) > 0) {
+        $message = '<script>alert("Username sudah ada");
         window.location="../user"</script>
         </script>';
     }else{
-        $message = '<script>alert("kontol")</script>';
+        $query = mysqli_query($conn, "INSERT INTO tb_users (nama,username,level,nohp,alamat,password) values ('$name','$username','$level','$nohp','$alamat','$password')");
+        if($query){
+            $message = '<script>alert("bajisan");
+            window.location="../user"</script>
+            </script>';
+        }else{
+            $message = '<script>alert("kontol")</script>';
+        }
     }
 }echo $message;
 ?>
