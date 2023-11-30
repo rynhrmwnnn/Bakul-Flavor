@@ -7,12 +7,12 @@ while ($record = mysqli_fetch_array($query)) {
 ?>
 <div class="col-lg-9 mt-2">
     <div class="card">
-        <div class="card-header">Halaman User</div>
+        <div class="card-header">Halaman Menu</div>
         <div class="card-body">
             <div class="row">
                 <div class="col d-flex justify-content-end">
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTambahUser">
-                        Tambah User
+                        Tambah Menu
                     </button>
                 </div>
             </div>
